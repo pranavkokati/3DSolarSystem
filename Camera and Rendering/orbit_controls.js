@@ -27,3 +27,9 @@ function init() {
     controls.enablePan = false;    // Disable panning
     controls.maxDistance = 100;    // Set maximum zoom-out distance
     controls.minDistance = 1;      // Set minimum zoom-in distance
+    
+    // Handle window resize events
+    window.addEventListener('resize', onWindowResize, false);
+
+    // Start rendering the scene
+    animate();
