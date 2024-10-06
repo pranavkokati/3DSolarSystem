@@ -19,14 +19,5 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-// Adjust canvas size on window resize
-window.addEventListener('resize', function () {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    renderer.setSize(width, height);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-});
-
 // Start the animation loop
 animate();
