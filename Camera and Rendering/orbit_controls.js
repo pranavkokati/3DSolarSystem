@@ -15,6 +15,9 @@ function init() {
 
     // Create a scene
     scene = new THREE.Scene();
+    // Add lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
 
     // Create a camera with perspective projection
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -30,6 +33,8 @@ function init() {
     
     // Handle window resize events
     window.addEventListener('resize', onWindowResize, false);
+
+    
 
     // Start rendering the scene
     animate();
