@@ -1,23 +1,29 @@
-import * as THREE from 'three';
+// Import Three.js and OrbitControls
+import * as THREE from "https://unpkg.com/three@0.127.0/build/three.module.js";
+import { OrbitControls } from "https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js";
 
-// Set up the scene, camera, and renderer
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+// Global variables
+let camera, scene, renderer, controls;
 
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+// Initialize the scene
+function init() {
+    // Create the renderer with antialiasing and set pixel ratio for high-DPI screens
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.body.appendChild(renderer.domElement);
 
-// Add ambient lighting
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-scene.add(ambientLight);
+    // Create a scene
+    scene = new THREE.Scene();
 
-// Set the camera position
-camera.position.z = 50;
+    // Create a camera with perspective projection
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 0, 5);
 
-function animate() {
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
-}
-
-animate();
+    // Add orbit controls for smoother user interactions
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; // Enable damping (smooth camera movement)
+    controls.dampingFactor = 0.05;
+    controls.enablePan = false;    // Disable panning
+    controls.maxDistance = 100;    // Set maximum zoom-out distance
+    controls.minDistance = 1;      // Set minimum zoom-in distance
