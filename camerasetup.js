@@ -8,20 +8,16 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Create a simple cube
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+// Add ambient lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.add(ambientLight);
 
-// Move camera back to view the cube
-camera.position.z = 5;
+// Set the camera position
+camera.position.z = 50;
 
-// Animation loop
 function animate() {
     requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
     renderer.render(scene, camera);
 }
+
 animate();
