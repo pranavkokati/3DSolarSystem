@@ -8,15 +8,10 @@
   </head>
   <center>
 This is a solar system orrery based on mathematical formulas and the NASA Near Earth Comets API. The planets are displayed by using their heliocentric coordinates (x, y, z). The animation is created by moving frames of plotted planets. 
-To calculate the planet positions, the formulas from the excellent Astronomy Answers website was used: <a href="https://aa.quae.nl/en/reken/hemelpositie.html"></a>. <br>
+To calculate the planet positions, the formulas from the excellent Astronomy Answers website was used: <a href="https://aa.quae.nl/en/reken/hemelpositie.html">Sun Position Answers</a>. <br>
 
-In astronomy, Julian Dates are frequently used. To calculate the Julian date, we borrowed code from this tutorial: https://jasonsturges.medium.com/moons-lunar-phase-in-javascript-a5219acbfe6e. Here is the code in JavaScript to calculate the Julian Date: <br>
-<code>const getJulianDate = (date = new Date()) => {
-  const time = date.getTime();
-  const tzoffset = date.getTimezoneOffset()
-  
-  return (time / 86400000) - (tzoffset / 1440) + 2440587.5;
-}</code><br>
+In astronomy, Julian Dates are frequently used. To calculate the Julian date, we borrowed code from this tutorial: <a href="https://jasonsturges.medium.com/moons-lunar-phase-in-javascript-a5219acbfe6e">Moon's Lunar Phase</a>. <br>
+    
 Each planet has a mean anomaly, which indicates its position in its orbit. With the Julian Date calculated earlier, the mean anomaly can be gotten. The mean anomaly can be calculated as:
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mtable displaystyle="true">
@@ -46,10 +41,10 @@ Each planet has a mean anomaly, which indicates its position in its orbit. With 
   </mtable>
 </math>
 
-  More information about the calculation of the mean anomaly can be gotten on step 2 of <a href="https://www.aa.quae.nl/en/reken/zonpositie.html"></a> <br>
+  More information about the calculation of the mean anomaly can be gotten on step 2 of <a href="https://www.aa.quae.nl/en/reken/zonpositie.html">Solar Position</a> <br>
   After obtaining the mean anomaly, the simulation calculates the equation of center (a corrective coefficient for the mean anomaly), and adds it to the mean anomaly of the planet to obtain the <i>true anomaly</i>, which is a more accurate measure. More information about calculating the equation of center and obtaining the true anomaly can be gotten from steps 2-3 in <a href="https://www.aa.quae.nl/en/reken/zonpositie.html">.
   <br>
-With the mean anomaly and some coefficients that can be gotten from tables 1 and 2 in this page: <a href="https://www.aa.quae.nl/en/reken/hemelpositie.html"></a>, the distance to the sun (from the planet) can be calculated via this formula:
+With the mean anomaly and some coefficients that can be gotten from tables 1 and 2 in this page: <a href="https://www.aa.quae.nl/en/reken/hemelpositie.html">Positions in the Sky</a>, the distance to the sun (from the planet) can be calculated via this formula:
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mtable displaystyle="true">
     <mlabeledtr>
