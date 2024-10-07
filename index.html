@@ -16,6 +16,18 @@
     <input type="date" id="dateInput" />
     <button id="calculateButton">Calculate and Plot</button>
     <p id="result"></p>
+    <div>
+        <button id="playButton">Play</button>
+        <button id="pauseButton">Pause</button>
+        <input type="range" id="speedSlider" min="1" max="10" value="1" />
+        <label for="speedSlider">Speed (days per increment)</label><br /><br />
+
+        Julian Date:
+        <p id="jd"></p>
+        Gregorian Date:
+        <p id="gd"></p>
+    </div>
+
     <div id="plot"></div>
     <script type="module" src="/src/main.js"></script>
 </body>

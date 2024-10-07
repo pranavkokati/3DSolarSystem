@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
     "build": "vite build",
     "deploy": "npm run build && gh-pages -d dist"
   },
