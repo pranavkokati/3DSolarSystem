@@ -42,7 +42,7 @@ Each planet has a mean anomaly, which indicates its position in its orbit. With 
 </math>
 
   More information about the calculation of the mean anomaly can be gotten on step 2 of <a href="https://www.aa.quae.nl/en/reken/zonpositie.html">Solar Position</a> <br>
-  After obtaining the mean anomaly, the simulation calculates the equation of center (a corrective coefficient for the mean anomaly), and adds it to the mean anomaly of the planet to obtain the <i>true anomaly</i>, which is a more accurate measure. More information about calculating the equation of center and obtaining the true anomaly can be gotten from steps 2-3 in <a href="https://www.aa.quae.nl/en/reken/zonpositie.html">.
+  After obtaining the mean anomaly, the simulation calculates the equation of center (a corrective coefficient for the mean anomaly), and adds it to the mean anomaly of the planet to obtain the <i>true anomaly</i>, which is a more accurate measure. More information about calculating the equation of center and obtaining the true anomaly can be gotten from steps 2-3 in <a href="https://www.aa.quae.nl/en/reken/zonpositie.html">Solar Position</a>.
   <br>
 With the mean anomaly and some coefficients that can be gotten from tables 1 and 2 in this page: <a href="https://www.aa.quae.nl/en/reken/hemelpositie.html">Positions in the Sky</a>, the distance to the sun (from the planet) can be calculated via this formula:
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
@@ -77,6 +77,150 @@ With the mean anomaly and some coefficients that can be gotten from tables 1 and
             </mrow>
           </mrow>
         </mfrac>
+      </mtd>
+    </mlabeledtr>
+  </mtable>
+</math>
+<br>
+    Afterwards, we used these formulas to calculate the heliocentric coordinates of the planets:
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mtable displaystyle="true" columnalign="right left right left right left right left right left right left" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" rowspacing="3pt">
+    <mlabeledtr>
+      <mtd id="mjx-eqn-7">
+        <mtext>(7)</mtext>
+      </mtd>
+      <mtd>
+        <msub>
+          <mi>x</mi>
+          <mtext>planet</mtext>
+        </msub>
+      </mtd>
+      <mtd>
+        <mi></mi>
+        <mo>=</mo>
+        <mi>r</mi>
+        <mo stretchy="false">(</mo>
+        <mi>cos</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mrow>
+          <mo>&#x3A9;</mo>
+        </mrow>
+        <mi>cos</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mo stretchy="false">(</mo>
+        <mrow>
+          <mo>&#x3C9;</mo>
+        </mrow>
+        <mo>+</mo>
+        <mrow>
+          <mo>&#x3BD;</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;</mo>
+        <mi>sin</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mrow>
+          <mo>&#x3A9;</mo>
+        </mrow>
+        <mi>cos</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mi>i</mi>
+        <mi>sin</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mo stretchy="false">(</mo>
+        <mrow>
+          <mo>&#x3C9;</mo>
+        </mrow>
+        <mo>+</mo>
+        <mrow>
+          <mo>&#x3BD;</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mtd>
+    </mlabeledtr>
+    <mlabeledtr>
+      <mtd id="mjx-eqn-8">
+        <mtext>(8)</mtext>
+      </mtd>
+      <mtd>
+        <msub>
+          <mi>y</mi>
+          <mtext>planet</mtext>
+        </msub>
+      </mtd>
+      <mtd>
+        <mi></mi>
+        <mo>=</mo>
+        <mi>r</mi>
+        <mo stretchy="false">(</mo>
+        <mi>sin</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mrow>
+          <mo>&#x3A9;</mo>
+        </mrow>
+        <mi>cos</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mo stretchy="false">(</mo>
+        <mrow>
+          <mo>&#x3C9;</mo>
+        </mrow>
+        <mo>+</mo>
+        <mrow>
+          <mo>&#x3BD;</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>cos</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mrow>
+          <mo>&#x3A9;</mo>
+        </mrow>
+        <mi>cos</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mi>i</mi>
+        <mi>sin</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mo stretchy="false">(</mo>
+        <mrow>
+          <mo>&#x3C9;</mo>
+        </mrow>
+        <mo>+</mo>
+        <mrow>
+          <mo>&#x3BD;</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mtd>
+    </mlabeledtr>
+    <mlabeledtr>
+      <mtd id="mjx-eqn-9">
+        <mtext>(9)</mtext>
+      </mtd>
+      <mtd>
+        <msub>
+          <mi>z</mi>
+          <mtext>planet</mtext>
+        </msub>
+      </mtd>
+      <mtd>
+        <mi></mi>
+        <mo>=</mo>
+        <mi>r</mi>
+        <mi>sin</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mi>i</mi>
+        <mi>sin</mi>
+        <mo data-mjx-texclass="NONE">&#x2061;</mo>
+        <mo stretchy="false">(</mo>
+        <mrow>
+          <mo>&#x3C9;</mo>
+        </mrow>
+        <mo>+</mo>
+        <mrow>
+          <mo>&#x3BD;</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
       </mtd>
     </mlabeledtr>
   </mtable>
