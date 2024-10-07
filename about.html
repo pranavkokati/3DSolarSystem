@@ -9,6 +9,14 @@
   
 This is a solar system orrery based on mathematical formulas and the NASA Near Earth Comets API. The planets are displayed by using their heliocentric coordinates (x, y, z). The animation is created by moving frames of plotted planets. 
 To calculate the planet positions, the formulas from the excellent Astronomy Answers website was used: https://aa.quae.nl/en/reken/hemelpositie.html. <br>
+
+In astronomy, Julian Dates are frequently used. To calculate the Julian date, we borrowed code from this tutorial: https://jasonsturges.medium.com/moons-lunar-phase-in-javascript-a5219acbfe6e. Here is the code in JavaScript to calculate the Julian Date:
+<code>const getJulianDate = (date = new Date()) => {
+  const time = date.getTime();
+  const tzoffset = date.getTimezoneOffset()
+  
+  return (time / 86400000) - (tzoffset / 1440) + 2440587.5;
+}</code>
 Each planet has a mean anomaly, which indicates its position in its orbit. The mean anomaly can be calculated as:
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mtable displaystyle="true">
@@ -38,57 +46,6 @@ Each planet has a mean anomaly, which indicates its position in its orbit. The m
   </mtable>
 </math>
 
-Where <i>n</i> can be gotten from the table:
-
-<tbody><tr>
-<th>    </th><th><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" role="presentation" tabindex="0" ctxtmenu_counter="54" style="font-size: 123.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c6E"></mjx-c></mjx-mi></mjx-texatom></mjx-math><mjx-assistive-mml role="presentation" unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi></mrow></math></mjx-assistive-mml></mjx-container>    </th><th><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" role="presentation" tabindex="0" ctxtmenu_counter="55" style="font-size: 123.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c61"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c65"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-texatom></mjx-math><mjx-assistive-mml role="presentation" unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>a</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow></math></mjx-assistive-mml></mjx-container> </th><th><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" role="presentation" tabindex="0" ctxtmenu_counter="56" style="font-size: 123.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c3A0"></mjx-c></mjx-mo></mjx-texatom></mjx-texatom></mjx-math><mjx-assistive-mml role="presentation" unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mrow><mo>Π</mo></mrow></mrow></math></mjx-assistive-mml></mjx-container></th></tr>
-
-
-
-<tr>
-<td><a href="../../cgi-bin/glossary.cgi?l=en&amp;o=Mercury">Mercury</a> </td><td align="right">4.092317 </td><td align="right">   0.37073   </td><td align="right"> 77.456</td></tr>
-
-
-
-<tr>
-<td><a href="../antwoorden/planeten.html#Venus">Venus</a> </td><td align="right">1.602136 </td><td align="right">   0.72330   </td><td align="right">131.564</td></tr>
-
-
-
-<tr>
-<td><a href="../antwoorden/planeten.html#Earth">Earth</a> </td><td align="right">0.985608 </td><td align="right">   0.99972   </td><td align="right">102.937</td></tr>
-
-
-
-<tr>
-<td><a href="../antwoorden/planeten.html#Mars">Mars</a> </td><td align="right">0.524039 </td><td align="right">   1.51039   </td><td align="right">336.060</td></tr>
-
-
-
-<tr>
-<td><a href="../antwoorden/planeten.html#Jupiter">Jupiter</a> </td><td align="right">0.083056 </td><td align="right">   5.19037   </td><td align="right"> 14.331</td></tr>
-
-
-
-<tr>
-<td><a href="../antwoorden/planeten.html#Saturn">Saturn</a> </td><td align="right">0.033371 </td><td align="right">   9.52547   </td><td align="right"> 93.057</td></tr>
-
-
-
-<tr>
-<td><a href="../antwoorden/planeten.html#Uranus">Uranus</a> </td><td align="right">0.011698 </td><td align="right">  19.17725   </td><td align="right">173.005</td></tr>
-
-
-
-<tr>
-<td><a href="../../cgi-bin/glossary.cgi?l=en&amp;o=Neptune">Neptune</a> </td><td align="right">0.005965 </td><td align="right">  30.10796   </td><td align="right"> 48.124</td></tr>
-
-
-
-<tr>
-<td><a href="../antwoorden/planeten.html#Pluto">Pluto</a> </td><td align="right">0.003964 </td><td align="right">  37.09129   </td><td align="right">224.075</td></tr>
-
-
-</tbody>
+  More information about the calculation of the mean anomaly can be gotten on step 2 of https://www.aa.quae.nl/en/reken/zonpositie.html
 
 </html>
