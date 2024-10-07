@@ -1,0 +1,26 @@
+Solar System Orrery
+This is a solar system orrery based on mathematical formulas and the NASA Near Earth Comets API. The planets are displayed by using their heliocentric coordinates (x, y, z). The animation is created by moving frames of plotted planets. 
+To calculate the planet positions, the formulas from the excellent Astronomy Answers website was used: https://aa.quae.nl/en/reken/hemelpositie.html. <br>
+Each planet has a mean anomaly, which indicates its position in its orbit. 
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mtable displaystyle="true">
+    <mlabeledtr>
+      <mtd id="mjx-eqn-1">
+        <mtext>(1)</mtext>
+      </mtd>
+      <mtd>
+        <mi>a</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mi>q</mi>
+          <mrow>
+            <mn>1</mn>
+            <mo>&#x2212;</mo>
+            <mi>e</mi>
+          </mrow>
+        </mfrac>
+      </mtd>
+    </mlabeledtr>
+  </mtable>
+</math>
