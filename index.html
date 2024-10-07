@@ -8,9 +8,27 @@
         body { margin: 0; }
         canvas { display: block; }
     </style>
-  <script type="module" crossorigin src="/assets/index-CZnGin8O.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-D1da6hS4.css">
+  <script type="module" crossorigin src="/3dsolarsystem/assets/index-MsDn0I4H.js"></script>
+  <link rel="stylesheet" crossorigin href="/3dsolarsystem/assets/index-CeRj3lH-.css">
 </head>
 <body>
+    <h3>Julian Date Calculator</h3>
+    <label for="dateInput">Choose a date:</label>
+    <input type="date" id="dateInput" />
+    <button id="calculateButton">Calculate and Plot</button>
+    <p id="result"></p>
+    <div>
+        <button id="playButton">Play</button>
+        <button id="pauseButton">Pause</button>
+        <input type="range" id="speedSlider" min="1" max="10" value="1" />
+        <label for="speedSlider">Speed (days per increment)</label><br /><br />
+
+        Julian Date:
+        <p id="jd"></p>
+        Gregorian Date:
+        <p id="gd"></p>
+    </div>
+
+    <div id="plot"></div>
 </body>
 </html>
