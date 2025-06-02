@@ -1,1 +1,1 @@
-For reading about how the simulation works, please go to https://kokatipranav.github.io/3DSolarSystem/about.html
+For reading about how the simulation works, please go to https://pranavkokati.github.io/3DSolarSystem/about.html
